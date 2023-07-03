@@ -1,0 +1,205 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forecast Weather and Crop yeild Prediction</title>
+    <div
+        style="background-size: cover; background-repeat: no-repeat; background-image: url(https://c4.wallpaperflare.com/wallpaper/549/835/824/nature-wheat-field-cereal-wallpaper-preview.jpg);">
+    </div>
+    <!-- BootStrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+
+    <!-- css -->
+    <link rel="stylesheet" href="static/css/styles.css">
+
+
+</head>
+
+<body>
+    <!-- As a heading -->
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">FORECAST WEATHER AND CROP YEILD PREDICTION</a>
+            </div>
+        </div>
+    </nav>
+
+    <br><br><br>
+
+    <div class="container">
+
+        <form action="\predict" method="post">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Temperature</h5>
+                            <!-- Temperature Data -->
+                            <input type="number" name="temp" id="temp" required="required">
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <br>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <!-- Nitrogen -->
+                            <h5 class="card-title">Nitrogen(N)</h5>
+                            <select name="nitro" id="nitro" required="required">
+                                <option value="14">0-5%</option>
+                                <option value="37">5%-10%</option>
+                                <option value="58">10%-15%</option>
+                                <option value="77">15%-20%</option>
+                                <option value="93">s20%-25%</option>
+                                <option value="110">25%-30%</option>
+                                <option value="140">30% and More</option>
+
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <br><br><br>
+
+
+
+            <div class="row">
+
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <!-- Potassium -->
+                            <h5 class="card-title">Potassium(K)</h5>
+                            <select name="pot" id="pot" required="required">
+                                <option value="29">0-5%</option>
+                                <option value="58">5%-10%</option>
+                                <option value="87">10%-15%</option>
+                                <option value="116">15%-20%</option>
+                                <option value="145">s20%-25%</option>
+                                <option value="174">25%-30%</option>
+                                <option value="203">30% and More</option>
+
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <!-- Phosphorus -->
+                            <h5 class="card-title">Phosphorus(P)</h5>
+                            <select name="phos" id="phos" required="required">
+                                <option value="11">0-5%</option>
+                                <option value="22">5%-10%</option>
+                                <option value="33">10%-15%</option>
+                                <option value="44">15%-20%</option>
+                                <option value="55">s20%-25%</option>
+                                <option value="66">25%-30%</option>
+                                <option value="77">30% and More</option>
+
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br><br><br>
+
+
+            <div class="row">
+
+
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <!-- Rainfall -->
+                            <h5 class="card-title">RainFall (Cm)</h5>
+                            <select name="rain" id="rain" required="required">
+                                <option value="65.3214">Trace</option>
+                                <option value="95.6741">Light</option>
+                                <option value="125.4321">Light to Moderate</option>
+                                <option value="155.2431">Moderate</option>
+                                <option value="185.851">Moderate to Heavy</option>
+                                <option value="215.621">Heavy</option>
+                                <option value="245.712">Very Heavy</option>
+                                <option value="280.402">Extreme</option>
+
+
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <!--Humidity -->
+                            <h5 class="card-title">Humidity</h5>
+                            <select name="hum" id="hum" required="required">
+                                <option value="19.6">Very Low Humdity(0%-20%)</option>
+                                <option value="39.2">Low Humidity(20%-40%)</option>
+                                <option value="55.4">Moderate Humidity(40%-60%)</option>
+                                <option value="74.2">High Humidity(60%-80%)</option>
+                                <option value="98.2">Very High Humidity(80%-100%)</option>
+
+
+
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <br><br><br>
+
+
+            <div class="row">
+
+
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <!--Soil Ph -->
+                            <h5 class="card-title">Ph of the Soil</h5>
+                            <select name="ph" id="ph" required="required">
+
+                                <option value="1.4109">Ph 1</option>
+                                <option value="2.4563">Ph 2</option>
+                                <option value="3.6795">Ph 3</option>
+                                <option value="4.5473">Ph 4</option>
+                                <option value="5.1900">Ph 5</option>
+                                <option value="6.7854">Ph 6</option>
+                                <option value="7.2873">Ph 7</option>
+                                <option value="8.1653">Above 7</option>
+
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br><br><br>
+
+
+            <input type="submit" value="Submit" class="btn btn-success">
+
+
+        </form>
+        <br><br>
+</body>
+
+</html>
+
+
+<!-- https://c4.wallpaperflare.com/wallpaper/549/835/824/nature-wheat-field-cereal-wallpaper-preview.jpg -->
