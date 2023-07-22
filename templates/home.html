@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forecast Weather and Crop yeild Prediction</title>
     <div
-        style="background-size: cover; background-repeat: no-repeat; background-image: url(https://c4.wallpaperflare.com/wallpaper/549/835/824/nature-wheat-field-cereal-wallpaper-preview.jpg);">
+        style="background-size: cover; background-repeat: no-repeat; background-image: url(https://w0.peakpx.com/wallpaper/972/359/HD-wallpaper-the-field-peacful-large-farming-nature-field-agriculture-rural-vast-calm-green-huge.jpg);">
     </div>
     <!-- BootStrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -14,11 +14,12 @@
 
     <!-- css -->
     <link rel="stylesheet" href="static/css/styles.css">
+    
 
 
 </head>
 
-<body>
+<body background="https://w0.peakpx.com/wallpaper/972/359/HD-wallpaper-the-field-peacful-large-farming-nature-field-agriculture-rural-vast-calm-green-huge.jpg" >
     <!-- As a heading -->
     <nav class="navbar navbar-dark bg-dark">
         <div class="container">
@@ -39,7 +40,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Temperature</h5>
                             <!-- Temperature Data -->
-                            <input type="number" name="temp" id="temp" required="required">
+                            <input type="number" name="temp" id="temp" min="1" max="100" required="required">
                         </div>
                     </div>
                 </div>
@@ -49,18 +50,11 @@
                 <div class="col-sm-6">
                     <div class="card">
                         <div class="card-body">
-                            <!-- Nitrogen -->
+                            <!-- Nitrogen  -->
                             <h5 class="card-title">Nitrogen(N)</h5>
-                            <select name="nitro" id="nitro" required="required">
-                                <option value="14">0-5%</option>
-                                <option value="37">5%-10%</option>
-                                <option value="58">10%-15%</option>
-                                <option value="77">15%-20%</option>
-                                <option value="93">s20%-25%</option>
-                                <option value="110">25%-30%</option>
-                                <option value="140">30% and More</option>
+                            <input type="number" name="nitro" id="nitro" min="14" max="140" required>
 
-                            </select>
+                            
                         </div>
                     </div>
                 </div>
@@ -78,16 +72,9 @@
                         <div class="card-body">
                             <!-- Potassium -->
                             <h5 class="card-title">Potassium(K)</h5>
-                            <select name="pot" id="pot" required="required">
-                                <option value="29">0-5%</option>
-                                <option value="58">5%-10%</option>
-                                <option value="87">10%-15%</option>
-                                <option value="116">15%-20%</option>
-                                <option value="145">s20%-25%</option>
-                                <option value="174">25%-30%</option>
-                                <option value="203">30% and More</option>
+                            <input type="number" name="pot" id="pot" min="29.0000" max="203.0000" required>
 
-                            </select>
+                            
                         </div>
                     </div>
                 </div>
@@ -97,18 +84,10 @@
                 <div class="col-sm-6">
                     <div class="card">
                         <div class="card-body">
-                            <!-- Phosphorus -->
+                            <!-- Phosphorus  -->
                             <h5 class="card-title">Phosphorus(P)</h5>
-                            <select name="phos" id="phos" required="required">
-                                <option value="11">0-5%</option>
-                                <option value="22">5%-10%</option>
-                                <option value="33">10%-15%</option>
-                                <option value="44">15%-20%</option>
-                                <option value="55">s20%-25%</option>
-                                <option value="66">25%-30%</option>
-                                <option value="77">30% and More</option>
-
-                            </select>
+                            <input type="number" name="phos" id="phos" min="11.0000" max="80.99999" required>
+                            
                         </div>
                     </div>
                 </div>
@@ -123,38 +102,18 @@
                 <div class="col-sm-6">
                     <div class="card">
                         <div class="card-body">
-                            <!-- Rainfall -->
+                            <!-- Rainfall-->
                             <h5 class="card-title">RainFall (Cm)</h5>
-                            <select name="rain" id="rain" required="required">
-                                <option value="65.3214">Trace</option>
-                                <option value="95.6741">Light</option>
-                                <option value="125.4321">Light to Moderate</option>
-                                <option value="155.2431">Moderate</option>
-                                <option value="185.851">Moderate to Heavy</option>
-                                <option value="215.621">Heavy</option>
-                                <option value="245.712">Very Heavy</option>
-                                <option value="280.402">Extreme</option>
-
-
-                            </select>
+                            <input type="number" name="rain" id="rain" min="65.00000" max="280.5000" required>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="card">
                         <div class="card-body">
-                            <!--Humidity -->
+                            <!--Humidity hum 19.6000 - 98.9999 -->
                             <h5 class="card-title">Humidity</h5>
-                            <select name="hum" id="hum" required="required">
-                                <option value="19.6">Very Low Humdity(0%-20%)</option>
-                                <option value="39.2">Low Humidity(20%-40%)</option>
-                                <option value="55.4">Moderate Humidity(40%-60%)</option>
-                                <option value="74.2">High Humidity(60%-80%)</option>
-                                <option value="98.2">Very High Humidity(80%-100%)</option>
-
-
-
-                            </select>
+                            <input type="number" name="hum" id="hum" min="19.6000" max="98.9999" required>
                         </div>
                     </div>
                 </div>
@@ -171,20 +130,11 @@
                 <div class="col-sm-6">
                     <div class="card">
                         <div class="card-body">
-                            <!--Soil Ph -->
+                            <!--Soil Ph ph 1.4100 8.9999 -->
                             <h5 class="card-title">Ph of the Soil</h5>
-                            <select name="ph" id="ph" required="required">
+                            <input type="number" name="ph" id="ph" min="1.4100" max="8.9999" required>
 
-                                <option value="1.4109">Ph 1</option>
-                                <option value="2.4563">Ph 2</option>
-                                <option value="3.6795">Ph 3</option>
-                                <option value="4.5473">Ph 4</option>
-                                <option value="5.1900">Ph 5</option>
-                                <option value="6.7854">Ph 6</option>
-                                <option value="7.2873">Ph 7</option>
-                                <option value="8.1653">Above 7</option>
-
-                            </select>
+                          
                         </div>
                     </div>
                 </div>
@@ -197,6 +147,16 @@
 
         </form>
         <br><br>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
