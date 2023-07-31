@@ -14,7 +14,7 @@
 
     <!-- css -->
     <link rel="stylesheet" href="static/css/styles.css">
-    
+
 
 
 </head>
@@ -29,18 +29,23 @@
         </div>
     </nav>
 
+    <p>
+        State Name: {{ statename }} <br>
+        Crop Name: {{ cropname }}
+    </p>
+
     <br><br><br>
 
     <div class="container">
 
-        <form action="\predict" method="post">
+        <form action="{{ url_for('predict') }}" method="post">
             <div class="row">
                 <div class="col-sm-6">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Temperature</h5>
                             <!-- Temperature Data -->
-                            <input type="number" name="temp" id="temp" min="1" max="100" required="required">
+                            <input type="number" name="temp" id="temp" step="0.1" min="0" max="100" required="required">
                         </div>
                     </div>
                 </div>
@@ -52,9 +57,9 @@
                         <div class="card-body">
                             <!-- Nitrogen  -->
                             <h5 class="card-title">Nitrogen(N)</h5>
-                            <input type="number" name="nitro" id="nitro" min="14" max="140" required>
+                            <input type="number" name="nitro" id="nitro" step="0.1" min="0" max="140" required>
 
-                            
+
                         </div>
                     </div>
                 </div>
@@ -72,9 +77,9 @@
                         <div class="card-body">
                             <!-- Potassium -->
                             <h5 class="card-title">Potassium(K)</h5>
-                            <input type="number" name="pot" id="pot" min="29.0000" max="203.0000" required>
+                            <input type="number" name="pot" id="pot" step="0.1" min="0" max="203.0000" required>
 
-                            
+
                         </div>
                     </div>
                 </div>
@@ -86,8 +91,8 @@
                         <div class="card-body">
                             <!-- Phosphorus  -->
                             <h5 class="card-title">Phosphorus(P)</h5>
-                            <input type="number" name="phos" id="phos" min="11.0000" max="80.99999" required>
-                            
+                            <input type="number" name="phos" id="phos" step="0.1" min="0" max="80.99999" required>
+
                         </div>
                     </div>
                 </div>
@@ -104,7 +109,7 @@
                         <div class="card-body">
                             <!-- Rainfall-->
                             <h5 class="card-title">RainFall (Cm)</h5>
-                            <input type="number" name="rain" id="rain" min="65.00000" max="280.5000" required>
+                            <input type="number" name="rain" id="rain" step="0.1" min="0" max="280.5000" required>
                         </div>
                     </div>
                 </div>
@@ -113,7 +118,7 @@
                         <div class="card-body">
                             <!--Humidity hum 19.6000 - 98.9999 -->
                             <h5 class="card-title">Humidity</h5>
-                            <input type="number" name="hum" id="hum" min="19.6000" max="98.9999" required>
+                            <input type="number" name="hum" id="hum" step="0.1" min="0" max="98.9999" required>
                         </div>
                     </div>
                 </div>
@@ -132,9 +137,9 @@
                         <div class="card-body">
                             <!--Soil Ph ph 1.4100 8.9999 -->
                             <h5 class="card-title">Ph of the Soil</h5>
-                            <input type="number" name="ph" id="ph" min="1.4100" max="8.9999" required>
+                            <input type="number" name="ph" id="ph" step="0.1" min="0" max="9.5" required>
 
-                          
+
                         </div>
                     </div>
                 </div>

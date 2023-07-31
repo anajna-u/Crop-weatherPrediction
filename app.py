@@ -1,53 +1,53 @@
-from flask import Flask
+from flask import Flask, url_for
 from flask import request, render_template
-from flask_cors import cross_origin
+# from flask_cors import cross_origin
 import pickle
-import pandas as pd 
+import pandas as pd
 import sklearn
-import logging 
+import logging
 import numpy as np
 
+from model import Model, use as model_use
+import pickle
+
+
+m = model_use("model.pkl")
+
 app = Flask(__name__)
-# model = pickle.load(open("flight_fare_rf.pkl","rb"))
-#logging.info('loading the model')
 
 
 @app.route("/")
-@cross_origin()
+# @cross_origin()
 def home():
     return render_template('home.html', value="shreyas")
 
 
-@app.route("/predict", methods = ["GET","POST"])
-@cross_origin()
+@app.route("/generate")
+def generate():
+    m.generate()
+    m.save("trained-model.pkl")
+
+    return "DONE."
+
+
+@app.route("/predict", methods=["POST"])
+# @cross_origin()
 def predict():
-    
+    # TODO: Normalise the parameters
 
-    if request.method == "POST":
-        tmp=int(request.form["temp"])
-        fert_nit=request.form["nitro"]
-        fert_pot=request.form["pot"]
-        fert_phos=request.form["phos"]
-        rain=request.form["rain"]
-        humid=request.form["hum"]
-        ph=request.form["ph"]
+    tmp = float(request.form["temp"])
+    fert_nit = float(request.form["nitro"])
+    fert_pot = float(request.form["pot"])
+    fert_phos = float(request.form["phos"])
+    rain = float(request.form["rain"])
+    humid = float(request.form["hum"])
+    ph = float(request.form["ph"])
 
+    prediction = m.predict(
+        [tmp, fert_nit, fert_pot, fert_phos, rain, humid, ph])
+    statename, cropname = m.labels[np.argmax(prediction)].split(" / ")
 
-    prediction = model.predict([[tmp,fert_nit,fert_pot,fert_phos,rain,humid,ph]])
-    output= np.argmax(prediction, axis=1)[0]
-
-
-
-    return render_template('home.html', prediction_text = "The predicted Area is {}".format(output))
-
-        # return str(request.form)
-    
-    # if request.method == "POST":
-        
-    #     fert_nit=request.form["nitro"]
-    #     if(fert_nit=='14'):
-    #         pass
-        # potassium=request.
+    return render_template('home.html', statename=statename, cropname=cropname)
 
 
 if __name__ == '__main__':

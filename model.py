@@ -29,9 +29,11 @@ class Model:
         df = pd.read_csv(self._datapath)
 
         X = df.iloc[:, :7].values  # Testing X, we need to limit this
-        self.X = (X - np.min(X, axis=0)) / (np.max(X, axis=0) - np.min(X, axis=0))
+        self.X = (X - np.min(X, axis=0)) / \
+            (np.max(X, axis=0) - np.min(X, axis=0))
 
-        self.Y = LabelEncoder().fit_transform(df.iloc[:, 7])
+        self.labels, self.Y = np.unique(
+            [" / ".join(_) for _ in df.iloc[:, [7, 9]].to_numpy()], return_inverse=True)
 
         assert len(self.X) == len(self.Y)
 
@@ -75,7 +77,8 @@ class Model:
             # kernel_regularizer = regularizers.l2(DNN_L2_LAMBDA)
 
         dnn.add(Dense(dnn_output_size, activation="softmax"))
-        dnn.compile(loss="sparse_categorical_crossentropy", optimizer="adam", metrics=["accuracy"])
+        dnn.compile(loss="sparse_categorical_crossentropy",
+                    optimizer="adam", metrics=["accuracy"])
 
         dnn.fit(ws, Y, epochs=self.DNN_EPOCHS, batch_size=32)
         dnn.summary()
@@ -92,3 +95,12 @@ class Model:
     def use(self, path: str):
         with open(path, 'rb') as f:
             self.ms, self.dnn = pickle.load(f)
+
+
+def save(o: object, path: str):
+    with open(path, 'wb') as f:
+        pickle.dump(o, f)
+
+def use(path: str) -> Model:
+    with open(path, 'rb') as f:
+        return pickle.load(f)
